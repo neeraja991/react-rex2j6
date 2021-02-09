@@ -12,7 +12,7 @@
     "react-flip-move": "^3.0.4"
   },
   "scripts": {
-    "start": "json-server --watch db.json && react-scripts start",
+    "start": "json-server --watch db.json",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
