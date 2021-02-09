@@ -1,3 +1,13 @@
-# react-rex2j6
+to set this up,
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-rex2j6)
+Install concurrently and set up the port
+----------------------------------------
+npm i -D concurrently
+
+to set up the port
+-------------------
+$ export PORT=8000
+
+C:\Users\neersri>SET PORT=8000
+
+
