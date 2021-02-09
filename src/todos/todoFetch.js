@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { data } from "./data";
-//const url = "http://localhost:3000/Todos";
+//import { data } from "./data";
+const url = "http://localhost:3000/Todos";
 
 const UseEffectFetchData = () => {
   const [todo, setTodo] = useState([]);
