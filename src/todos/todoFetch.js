@@ -24,7 +24,7 @@ const UseEffectFetchData = () => {
   useEffect(() => {
     getTodos();
     //getInitialState();
-   // onHandleClick();
+    // onHandleClick();
   }, []);
 
   const changeItem = id => {
@@ -55,11 +55,11 @@ const UseEffectFetchData = () => {
               const { id, Desc, isCompleted } = list;
 
               return (
-                <ul key={id} className="todos">
-                  <h4>
-                    {Desc}
-                  </h4>
-                  <button onClick={() => removeItem(id)}>Remove</button>
+                <ul key={id} className="d-inline p-2 m-1 bg-dark  text-white">
+                  <li>
+                    <h4>{Desc}</h4>
+                    <button onClick={() => removeItem(id)}>Remove</button>
+                  </li>
                 </ul>
               );
             })}
