@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 //import { data } from "./data";
-const url = "https://jsonplaceholder.typicode.com/";
+const url = "https://react-rex2j6.stackblitz.io/";
 
 const UseEffectFetchData = () => {
   const [todo, setTodo] = useState([]);
   const [state, setState] = useState([]);
   const getTodos = async () => {
-    axios.get(`${url}todos`).then(res => {
+    axios.get(`${url}Todos`).then(res => {
       console.log(res);
-      const todos = res.data;
+      const todos = res;
       console.log("test" + todos[0].Desc);
       //setTodo(todos);
     });
