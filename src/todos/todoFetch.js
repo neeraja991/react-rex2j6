@@ -10,7 +10,7 @@ const UseEffectFetchData = () => {
   const getTodos = async () => {
     axios.get(`${url}Todos`).then(res => {
       console.log(res);
-      const todos = res;
+      const todos = res.data;
       console.log("test" + todos[0].Desc);
       //setTodo(todos);
     });
