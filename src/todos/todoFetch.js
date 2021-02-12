@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 //import { data } from "./data";
-const url = "http://localhost:3000/";
+const url = "https://react-rex2j6.stackblitz.io/";
 
 const UseEffectFetchData = () => {
   const [todo, setTodo] = useState([]);
