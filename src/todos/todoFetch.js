@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 //import { data } from "./data";
-const url = "https://jsonplaceholder.typicode.com/todos";
+const url = "api.mocki.io/v1/35744a6f";
 
 const UseEffectFetchData = () => {
   const [todo, setTodo] = useState([]);
