@@ -8,15 +8,14 @@ const UseEffectFetchData = () => {
   const [todo, setTodo] = useState([]);
   const [state, setState] = useState([]);
   const getTodos = async () => {
-    axios.get(`${url}Todos`)
-    .then((res) => {
-    //  console.log(res);
+    axios.get(`${url}Todos`).then(res => {
+      //  console.log(res);
       const todos = res.data;
-  // console.log("test"+todos[0].Desc);
-   setTodo(todos);
-        })
-    
-   // setTodo(res);
+      // console.log("test"+todos[0].Desc);
+      setTodo(todos);
+    });
+
+    // setTodo(res);
   };
 
   const getInitialState = () => {
@@ -47,55 +46,51 @@ const UseEffectFetchData = () => {
     setTodo(newTodo);
   };
 
+  var styles1 = {
+    display: "flex",
+    justifyContent: "center",
+    margin: "20px",
+    width: "550px",
+    height: "450px",
+    backgroundColor: "lightcoral",
+    display: "block"
+  };
+  var styles2 = {
+    margin: "20px",
+    width: "200px",
+    height: "1200px",
+    backgroundColor: "blue",
+    display: "inline-block"
+  };
 
-    var styles1 = {
-      display: "flex",
-      justifyContent: "center",
-      margin: '20px',
-      width: '550px',
-      height: '450px',
-      backgroundColor: 'lightcoral',
-      display: 'block',
-    };
-    var styles2 = {
-      margin: '20px',
-      width: '200px',
-      height: '1200px',
-      backgroundColor: 'blue',
-      display: 'inline-block',
-    };
- 
   return (
-    <React.Fragment> 
+    <React.Fragment>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
           backgroundColor: "lightcyan",
-          height: '1000px'
+          height: "1000px"
           //margin: '20px'
         }}
       >
         <div className="square-box" style={styles1}>
-        <h3>ToDo List</h3>
-    
+          <h3>ToDo List</h3>
+
           <ul className="users">
             {todo.map(list => {
               const { id, Desc, isCompleted } = list;
 
               return (
-             
                 <ul key={id}>
                   <li>
-                  <h4 className="d-block p-2 bg-dark text-white">{Desc}
+                    <h4 className="d-block p-2 bg-dark text-white">
+                      {Desc}
 
-                 
-                  <button onClick={() => removeItem(id)}>Remove</button></h4></li>
-                  
+                      <button onClick={() => removeItem(id)}>Remove</button>
+                    </h4>
+                  </li>
                 </ul>
-               
-               
-                
               );
             })}
 
@@ -105,7 +100,7 @@ const UseEffectFetchData = () => {
           </ul>
         </div>
       </div>
-    </React.Fragment> 
+    </React.Fragment>
   );
 };
 
