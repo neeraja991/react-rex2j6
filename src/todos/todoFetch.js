@@ -10,8 +10,8 @@ const UseEffectFetchData = () => {
   const getTodos = async () => {
     axios.get(`${url}`).then(res => {
       console.log(res);
-      const todos = res.data;
-      console.log("test" + todos[0].title);
+      const todos = res.data.Todos;
+      console.log("test" + todos.Desc);
       setTodo(todos);
     });
 
@@ -79,13 +79,13 @@ const UseEffectFetchData = () => {
 
           <ul className="users">
             {todo.map(list => {
-              const { id, title, isCompleted } = list;
+              const { id, Desc, isCompleted } = list;
 
               return (
                 <ul key={id}>
                   <li>
                     <h4 className="d-block p-2 bg-dark text-white">
-                      {title}
+                      {Desc}
 
                       <button onClick={() => removeItem(id)}>Remove</button>
                     </h4>
