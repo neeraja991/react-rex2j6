@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 //import { data } from "./data";
-const url = "https://react-rex2j6.stackblitz.io/";
+const url = "https://jsonplaceholder.typicode.com/";
 
 const UseEffectFetchData = () => {
   const [todo, setTodo] = useState([]);
   const [state, setState] = useState([]);
   const getTodos = async () => {
     axios.get(`${url}Todos`).then(res => {
-      console.log("res1"+res.json());
-      const todos = res.json;
-      console.log("test" + todos[0].Desc);
+      console.log(res);
+      const todo = res.data;
+      console.log("test" + todo[0].title);
       //setTodo(todos);
     });
 
@@ -79,13 +79,13 @@ const UseEffectFetchData = () => {
 
           <ul className="users">
             {todo.map(list => {
-              const { id, Desc, isCompleted } = list;
+              const { id, title, isCompleted } = list;
 
               return (
                 <ul key={id}>
                   <li>
                     <h4 className="d-block p-2 bg-dark text-white">
-                      {Desc}
+                      {title}
 
                       <button onClick={() => removeItem(id)}>Remove</button>
                     </h4>
