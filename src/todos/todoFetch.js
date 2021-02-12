@@ -2,20 +2,21 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 //import { data } from "./data";
-//const url = "http://localhost:3000/Todos";
+const url = "http://localhost:3000/";
 
 const UseEffectFetchData = () => {
   const [todo, setTodo] = useState([]);
   const [state, setState] = useState([]);
   const getTodos = async () => {
-    axios.get(`http://localhost:3000/Todos`)
+    axios.get(`${url}Todos`)
     .then((res) => {
-      console.log(res);
-      const todos = await res.json();
-      setTodo(todos);
-       );
-      })
-
+    //  console.log(res);
+      const todos = res.data;
+  // console.log("test"+todos[0].Desc);
+   setTodo(todos);
+        })
+    
+   // setTodo(res);
   };
 
   const getInitialState = () => {
