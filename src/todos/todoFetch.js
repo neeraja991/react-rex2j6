@@ -9,10 +9,10 @@ const UseEffectFetchData = () => {
   const [state, setState] = useState([]);
   const getTodos = async () => {
     axios.get(`${url}Todos`).then(res => {
-      //  console.log(res);
+      console.log(res);
       const todos = res.data;
-      // console.log("test"+todos[0].Desc);
-      setTodo(todos);
+      console.log("test" + todos[0].Desc);
+      //setTodo(todos);
     });
 
     // setTodo(res);
