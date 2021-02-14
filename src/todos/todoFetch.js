@@ -114,16 +114,14 @@ const MyBeautifulButton = props => {
 
               return (
                 <ul key={id}>
-                  <li>
-                    <input
-                      type="checkbox"
-                      id="foo"
-                      name="foo"
-                      onClick={handleClick}
-                    />
-                    <label ref={labelRef} htmlFor="foo">
-                      {Desc}-{isCompleted}
-                    </label>
+                 <li
+        style={{
+          textDecoration: item.checked ? 'line-through' : 'none',
+        }}
+        onClick={itemCheckHandler}
+      >
+        {Desc}
+      
 
                     <button onClick={() => removeItem(id)}>Remove</button>
                   </li>
@@ -131,6 +129,10 @@ const MyBeautifulButton = props => {
                 
 
                 </ul>
+
+
+
+                
               );
             })}
 
