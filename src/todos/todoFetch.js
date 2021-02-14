@@ -1,12 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-
+import styles from "./my-beautiful-button.module.css";
 //import { data } from "./data";
-const url = "https://api.mocki.io/v1/35744a6f";
+//const url = "https://api.mocki.io/v1/f57cb614";
+const url = "https://api.mocki.io/v1/84285efa";
 
-const UseEffectFetchData = () => {
+const MyBeautifulButton = props => {
   const [todo, setTodo] = useState([]);
-  const [state, setState] = useState([]);
+  // const [state, setState] = useState([]);
+
+  const [state, setState] = useState({ isCompleted: false });
+  const labelRef = React.createRef();
+
+  const handleClick = e => {
+    if (state.isCompleted === false) {
+     // state.isCompleted = false;
+      labelRef.current.style.textDecoration = "line-through";
+    } else {
+     // state.isCompleted = true;
+      labelRef.current.style.textDecoration = "none";
+    }
+    setState({ isCompleted: !state.isCompleted });
+  };
   const getTodos = async () => {
     axios.get(`${url}`).then(res => {
       console.log(res);
@@ -63,6 +78,22 @@ const UseEffectFetchData = () => {
     display: "inline-block"
   };
 
+  const button = {
+    color: "#494949",
+    // textTransform: 'uppercase',
+    textDecoration: "none",
+
+    // border: '4px solid #494949',
+    display: "inline-block",
+    transition: "all 0.4s ease 0s"
+  };
+
+  const primaryButton = {
+    //...button,
+
+    textDecoration: "line-through"
+  };
+
   return (
     <React.Fragment>
       <div
@@ -84,12 +115,21 @@ const UseEffectFetchData = () => {
               return (
                 <ul key={id}>
                   <li>
-                    <h4 className="d-block p-2 bg-dark text-white">
-                      {Desc}
+                    <input
+                      type="checkbox"
+                      id="foo"
+                      name="foo"
+                      onClick={handleClick}
+                    />
+                    <label ref={labelRef} htmlFor="foo">
+                      {Desc}-{isCompleted}
+                    </label>
 
-                      <button onClick={() => removeItem(id)}>Remove</button>
-                    </h4>
+                    <button onClick={() => removeItem(id)}>Remove</button>
                   </li>
+
+                
+
                 </ul>
               );
             })}
@@ -104,4 +144,4 @@ const UseEffectFetchData = () => {
   );
 };
 
-export default UseEffectFetchData;
+export default MyBeautifulButton;
