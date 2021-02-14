@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import styles from "./my-beautiful-button.module.css";
 //import { data } from "./data";
-//const url = "https://api.mocki.io/v1/f57cb614";
-const url = "https://api.mocki.io/v1/84285efa";
+const url = "https://api.mocki.io/v1/f57cb614";
+//const url = "https://api.mocki.io/v1/84285efa";
 
 const MyBeautifulButton = props => {
   const [todo, setTodo] = useState([]);
@@ -114,31 +114,20 @@ const MyBeautifulButton = props => {
 
               return (
                 <ul key={id}>
-                 <li
-        style={{
-          textDecoration: item.checked ? 'line-through' : 'none',
-        }}
-        onClick={itemCheckHandler}
-      >
-        {Desc}
-      
-
-                    <button onClick={() => removeItem(id)}>Remove</button>
+                 <li>
+        {Desc}-{isCompleted}
+                     <button onClick={() => removeItem(id)}>Remove</button>
+             
                   </li>
-
-                
-
                 </ul>
-
-
-
-                
+             
               );
             })}
 
             <button className="btn" onClick={() => setTodo([])}>
               Clear Items
             </button>
+             <div>{todo.filter(todo => !todo.isCompleted).length}items to do</div>
           </ul>
         </div>
       </div>
